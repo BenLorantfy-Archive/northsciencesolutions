@@ -1,7 +1,21 @@
 <?php
-function handleAJAX($class){
-	$method = $_POST["call"];	// method to call
-	$post = $_POST;				// Don't modify the super global, instead, copy it
+
+/*
+ * 	FUNCTION 	: handleAJAX
+ *
+ * 	DESCRIPTION : This function is used to allow methods to be called with AJAX 
+ *				  in the same way as regular synchronous server-side calls  
+ *				  Calls method specified in the post variable named "call" and echos
+ *				  return data as json
+ *
+ *	PARAMETERS  : string class : the class method belongs to
+ *
+ * 	RETURNS 	: nothing
+ */		
+function handleAJAX(){
+	$class  = $_POST["class"];	// class method belongs to
+	$method = $_POST["method"];	// method to call
+	$post 	= $_POST;			// Don't modify the super global, instead, copy it
 	
 	if(method_exists($class,$method)){
 		//
@@ -9,66 +23,26 @@ function handleAJAX($class){
 		//
 		session_start();
 		
+		unset($post["class"]);
+		unset($post["method"]);
+
 		//
-		// Generates an array of paramter names in the order they appear in method
+		// Decodes parameters
 		//
-		// Reflection is ussually not good practice, but because this is used for a very specific
-		// purpose, this is an acceptable exception, esspecially since the added time accounts for
-		// about 0.00004 seconds when measured with microtime(), and it is only used once per
-		// request. The benefit is that the method parameters can be specified by name.
-		//
-		$params = (new ReflectionMethod($class, $method))->getParameters();
-		$paramNames = array();
-		foreach($params as $param){
-			$paramNames[] = $param->name;
-		}
-		$paramNamesAsKeys = array_flip($paramNames);
+		array_walk($post, function(&$value, &$key) {
+		    $value = json_decode($value);
+		});
 		
-		//
-		// Removes all elements from $post whose keys aren't parameter names 
-		//
-		$post = array_intersect_key($post, $paramNamesAsKeys);
-		
-		//
-		// Cut off $paramNamesAsKeys where $post stops providing values
-		// If a parameter was skipped, error
-		//
-		$ended = false;
-		foreach($paramNamesAsKeys as $key => $value){
-			if(!isset($post[$key])){
-				if(!$ended){
-					array_splice($paramNamesAsKeys, (array_search($key, array_keys($paramNamesAsKeys))));		
-					$ended = true;				
-				}
-			}else{
-				if($ended){
-					throw new Exception("Can't skip parameters in AJAX call");
-				}
-			}
-		}
-		
-		//
-		// Sorts post so elements are in the same order as method parameters
-		//
-		$post = array_merge($paramNamesAsKeys, $post);
-			
-		//
-		// Calls method with elements of $post as parameters
-		//
-		$returnData = call_user_func_array(array(new $class(),$method), $post);
-		
-		//
-		// Echos $returnData in json format
-		// In an AJAX request, this can be accessed client-side as response data
-		//
-		// Second parameter is a bitmask that sensures html is treated correctly when decoded
-		// JSON_HEX_TAG: All < and > are converted to \u003C and \u003E. Available since PHP 5.3.0.
-		// JSON_HEX_QUOT: All " are converted to \u0022. Available since PHP 5.3.0
-		//
-		echo json_encode($returnData, JSON_HEX_QUOT | JSON_HEX_TAG);
+		try{
+			$returnData = call_user_func_array(array(new $class(),$method), $post);						
+		}catch(Exception $e){
+			$returnData = array("error" => true,"message" => $e->getMessage());
+		}	
 	}else{
-		throw new Exception("Method doesn't exist");
-	}
+		$returnData = array("error" => true, "message" => "Specified method doesn't exist within specified class");
+	}	
+	
+	echo json_encode($returnData, JSON_HEX_QUOT | JSON_HEX_TAG);
 }
 
 ?>
