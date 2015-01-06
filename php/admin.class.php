@@ -21,12 +21,8 @@ require_once("php/ajax.php");
 //
 // Handle AJAX
 // -----------
-// Tests if page was requested with ajax. This can be spoofed, but that doesn't really matter
-// If it was, call method specified in the post variable named "call" and echo return data
 //
-if(isset($_POST["call"]) && realpath(__FILE__) == realpath($_SERVER["SCRIPT_FILENAME"])){
-	handleAJAX("Admin");	
-}
+handleAJAX();	
 
 /*
  * NAME 	: Admin
@@ -40,42 +36,73 @@ class Admin{
 	function __construct(){
 		$this->db = connect();
 	}
-	
-	function login($name="",$password=""){
+
+	/*
+	 * 	FUNCTION 	: login
+	 *
+	 * 	DESCRIPTION : This function calculates tax on a retail purchase in Ontario.
+	 *
+	 * 	PARAMETERS 	: string name     : username
+	 *				 string password : user password
+	 *
+	 * 	RETURNS 	: true on success, false on failure
+	 */	
+	function login($name="",$password=""){		
 		$success = false;
 		
+		//
+		// Using prepared statements is more secure than esacping dangerous charachters
+		//
 		$query = $this->db->prepare("SELECT password FROM users WHERE name = ? LIMIT 1");
 		$query->bind_param("s",$name);
-		$query->execute();
-		$query->store_result();
-		
-		if($query->num_rows == 1){
-			$query->bind_result($hashedPassword);
-			$query->fetch();
-			if(password_verify($password,$hashedPassword)){
-				$_SESSION["name"] = $name;
-				$_SESSION["password"] = $password;
-				$success = true;
-			}
-		}
-				
-		return $success;
-	}
-	
-	function isLogged(){
-		$logged = false;		
-		if(isset($_SESSION["name"]) && isset($_SESSION["password"])){			
-			$query = $this->db->prepare("SELECT password FROM users WHERE name = ? LIMIT 1");
-			$query->bind_param("s",$_SESSION["name"]);
-			$query->execute();
+		if($query->execute()){
 			$query->store_result();
 			
 			if($query->num_rows == 1){
 				$query->bind_result($hashedPassword);
 				$query->fetch();
-				if(password_verify($_SESSION["password"],$hashedPassword)){
-					$logged = true;
+				if(password_verify($password,$hashedPassword)){
+					$_SESSION["name"] = $name;
+					$_SESSION["password"] = $password;
+					$success = true;
 				}
+			}			
+		}else{
+			throw new Exception("Query failed: " . $this->db->error);
+		}
+		return $success;
+	}
+	
+	/*
+	 * 	FUNCTION 	: isLogged
+	 *
+	 * 	DESCRIPTION : This function tests if user is currently logged in
+	 *
+	 * 	PARAMETERS 	: none
+	 *
+	 * 	RETURNS 	: true if user is logged in, false if not
+	 */	
+	function isLogged(){		
+		$logged = false;		
+		if(isset($_SESSION["name"]) && isset($_SESSION["password"])){	
+				
+			//
+			// Using prepared is more secure than escaping dangerous charachters
+			//
+			$query = $this->db->prepare("SELECT password FROM users WHERE name = ? LIMIT 1");
+			$query->bind_param("s",$_SESSION["name"]);
+			if($query->execute()){
+				$query->store_result();
+				
+				if($query->num_rows == 1){
+					$query->bind_result($hashedPassword);
+					$query->fetch();
+					if(password_verify($_SESSION["password"],$hashedPassword)){
+						$logged = true;
+					}
+				}				
+			}else{
+				throw new Exception("Query failed: " . $this->db->error);
 			}
 		}
 		
