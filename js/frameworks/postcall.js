@@ -12,6 +12,7 @@ var JSON = window.JSON||{};
 	     prefix: "php/"
 	    ,suffix: ".class.php"
 	    ,lowerFileName: true
+	    ,json: true
     }
     
 	var postCall = function (classAndMethodName) {
@@ -26,37 +27,56 @@ var JSON = window.JSON||{};
         var path = settings.prefix + (settings.lowerFileName ? className.toLowerCase() : className) + settings.suffix;
 
         var j = 0;
-        var jsonedPostVars = {};
+        var postVars = {};
 		for(var i = 1; i < arguments.length; i++){
 	        if(typeof arguments[i] === "function" || typeof arguments[i] === "undefined") break;
-			jsonedPostVars[j++] = JSON.stringify(arguments[i]);
+			postVars[j++] = (settings.json) ? JSON.stringify(arguments[i]) : arguments[i];
         }
         
         var success = arguments[i];
         var error 	= arguments[i + 1];
         
-        jsonedPostVars["class"] = className;
-        jsonedPostVars["method"] = methodName;
-        $.post(path,jsonedPostVars).done(function(data){
-        	data = JSON.parse(data);
-        	if(data !== null && typeof data !== "undefined"){        	
-	        	if(data.error){
+        postVars["class"] = className;
+        postVars["method"] = methodName;
+        
+        if(settings.json){
+	        postVars["json"] = "yes";
+        }
+        
+        $.post(path,postVars).done(function(data){
+        	data = (settings.json) ? JSON.parse(data) : data;
+        	
+        	if(settings.json){
+	        	if(typeof data === "object"){
+		        	if(!data.error){
+			        	if(typeof success === "function"){
+				        	success(data);
+			        	}			        	
+		        	}else{
+		        		if(typeof error === "function"){
+			        		error(data.message);
+		        		}			        	
+		        	}
+	        	}else{
 	        		if(typeof error === "function"){
 		        		error(data.message);
-	        		}
-	        	}else{
+	        		}		        	
+	        	}
+        	}else{
+        		if(typeof data === "string"){
 		        	if(typeof success === "function"){
 			        	success(data);
 		        	}
-	        	}		        	
-        	}else{
-	        	if(typeof success === "function"){
-		        	success(data);
-	        	}		        	
+        		}else{
+	        		if(typeof error === "function"){
+		        		error(data.message);
+	        		}	        		
+        		}
         	}
+	        	
         }).fail(function(){
 	        if(typeof error === "function"){
-		        error("Fatal error occurred.  Specified script may not exist or have a syntax error.");
+		        error("Fatal error occurred in script or script does not exist");
 	        }
         });
     }
@@ -69,3 +89,4 @@ var JSON = window.JSON||{};
         postCall: postCall
     });
 })(jQuery);
+

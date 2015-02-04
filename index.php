@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php include("php/head.php"); ?>
+	<?php include("includes/head.php"); ?>
 </head>
 <body>
-	under construction
+	hi
 </body>
 </html>
