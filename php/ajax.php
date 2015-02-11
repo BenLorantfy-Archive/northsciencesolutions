@@ -11,55 +11,55 @@
  * 	RETURNS 	: nothing
  */		
 function handleAJAX(){
-	$class  = $_POST["class"];	// class method belongs to
-	$method = $_POST["method"];	// method to call
-	$post 	= $_POST;			// Don't modify the super global, instead, copy it
+	$class  	= $_POST["class"];	// class method belongs to
+	$method 	= $_POST["method"];	// method to call
+	$arguments 	= array();
 	
 	if(method_exists($class,$method)){
 		//
 		// Since request was made using AJAX, session has not been started, so start it
 		//
 		session_start();
-		
-		unset($post["class"]);
-		unset($post["method"]);
 
-		//
-		// Decodes parameters
-		//
-		if(isset($post["json"])){
-			array_walk($post, function(&$value, &$key) {
-			    $value = json_decode($value);
-			});			
-		}
-
+		array_walk($_POST, function(&$value, &$key) use (&$arguments){
+			if(is_numeric($key)){
+				if(isset($_POST["json"])){
+					array_push($arguments,json_decode($value));
+				}else{
+					array_push($arguments,$value);
+				}
+			}
+		});	
 		
 		try{
-			if(isset($post["json"])){
-				$returnData = array("error" => false, "message" => call_user_func_array(array(new $class(),$method), $post);
+			if(isset($_POST["json"])){
+				$returnData = array("error" => false, "message" => call_user_func_array(array(new $class(),$method), $arguments));
 			}else{
-				$returnData = call_user_func_array(array(new $class(),$method), $post);
+				$returnData = call_user_func_array(array(new $class(),$method), $arguments);
 			}
+			
 		}catch(Exception $e){
-			if(isset($post["json"])){
+			if(isset($_POST["json"])){
 				$returnData = array("error" => true,"message" => $e->getMessage());	
 			}else{
 				$returnData = $e->getMessage();
 			}
 		}	
+
 	}else{
-		if(isset($post["json"])){
+		if(isset($_POST["json"])){
 			$returnData = array("error" => true, "message" => "Specified method doesn't exist within specified class");
 		}else{
 			$returnData = "Specified method doesn't exist within specified class";
 		}
 	}	
 	
-	if(isset($post["json"])){
+	if(isset($_POST["json"])){
 		echo json_encode($returnData, JSON_HEX_QUOT | JSON_HEX_TAG);
 	}else{
 		echo print_r($returnData,true);
 	}
+	
 }
 
 ?>
