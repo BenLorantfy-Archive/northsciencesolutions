@@ -79,7 +79,9 @@
 				</div>
 				<div class="row">
 					<div class="col-md-6">
-						<div class="test"><img src="img/homer.png" /></div>
+						<div class="test">
+                                                    <div class="test"><img src="img/homer.png" /></div>
+                                                </div>
 					</div>
 					<div class="col-md-6">
 						<div class="test"><img src="img/homer.png" /></div>
@@ -96,45 +98,63 @@
 			</div>
 		</div>
 		<div id="contact" class="container">
-			<div class="team">
-				<div class="row">
-					<div class="col-md-12">
-						<h2>Contact us</h2>
-						<h2>123 Sesame Street</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<img src="http://xocai.xocaistore.com/media/wysiwyg/Xocai/InfoPages/group_of_scientists.jpg">
-					</div>
-				</div>
+                    <div class="team">
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="contactUsHeader">
+                                            <h2>Contact us</h2>
+                                            <h2>123 Sesame Street</h2>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                            <img src="http://xocai.xocaistore.com/media/wysiwyg/Xocai/InfoPages/group_of_scientists.jpg">
+                                    </div>
+                            </div>
 
-					<form>
-						<div class="row">
-							<div class="col-md-4">
+                                    <form>
+                                            <div id="contactInput">
+                                                    <div class="row">
+                                                            <div class="col-md-1">
 
-							</div>
-							<div class="col-md-2">
-								<input type="text" placeholder="name"/>
-							</div>
+                                                            </div>
+                                                            <div class="col-md-10">
+                                                                    <input class="form-control" placeholder="Name"/>
+                                                                    <input class="form-control" placeholder="Email"/>
+                                                            </div>
 
-							<div class="col-md-2">
-								<input type="email" placeholder="email"/>
-							</div>
-							<div class="col-md-4">
+                                                            <div class="col-md-1">
+                                                                
+                                                            </div>
+                                                    </div>
+                                                    <div class="row">
+                                                            <div class="col-md-1">
+                                                                
+                                                            </div>
+                                                            <div class="col-md-10">
+                                                                    <textarea id="commentInput" class="form-control" rows="10" placeholder="Type message here"></textarea>
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                
+                                                            </div>
+                                                    </div>
+                                                    <div class="row">
+                                                            <div class="col-md-4">
+                                                                
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <input type="submit" class="btn btn-primary"/>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                
+                                                            </div>
+                                                    </div>
+                                            </div>
+                                    </form>
 
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<textarea placeholder="Type message here" rows="4" columns="50"></textarea>
-							</div>
-						</div>
-					</form>
-
-				</div>
-			</div>
-		</div>
+                            </div>
+                    </div>
 	</body>
 </section>
 <footer>
