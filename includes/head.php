@@ -10,13 +10,17 @@
 <link rel="stylesheet" href="css/custom.css">
 
 <!-- JS -->
-<script src = "js/main.js"></script>
-<!-- frameworks -->
 <script src = "js/frameworks/jquery-1.11.2.min.js"></script>
 <script src = "js/frameworks/jqease.js"></script> 	<!-- Easing for jquery's animate function -->
 <script src = "js/frameworks/msgbox.js"></script> 	<!-- Used to show quick messages to the user (i.e. saved succesfully ) -->
 <script src = "js/frameworks/postcall.js"></script> <!-- Used to call php functions from js more easily -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> <!-- BootStrap -->
-<!-- Needed to add these in order for navbar to work properly in mobile mode -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/frameworks/bootstrap.min.js"></script>
+<script src = "js/main.js"></script>
+
+<!-- 
+	HTML5 SHIV 
+	If IE and less than v9, include html5shiv to allow styling on html5 elements 
+-->
+<!--[if lt IE 9]>
+<script src="js/frameworks/html5shiv.min.js"></script>
+<![endif]-->
