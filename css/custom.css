@@ -30,7 +30,10 @@ html,body{
 
 .jumbotron{
 	
-	background-image: url(http://xocai.xocaistore.com/media/wysiwyg/Xocai/InfoPages/group_of_scientists.jpg);
+	
+	
+	background-image: url("../img/background.png");
+	
 	background-size: cover;
 	height: 500px;
 }
@@ -178,8 +181,37 @@ input.btn.btn-primary{
 
 .sectionContent{
 	margin-top: 40px;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .categoryImage{
 	margin-bottom: 15px;
+}
+
+.jumbotron-text{
+	padding-top: 2em;
+	color:white;
+}
+
+.member-photo{
+	height: 250px;
+}
+
+.about-photo{
+	height: 400px;
+}
+
+.category-photo{
+	height: 250px;
+	width: 250px;
+}
+
+.product-image{
+	height: 250px;
+	width: 250px;
+}
+
+.product-row{
+	margin-top: 2em;
 }

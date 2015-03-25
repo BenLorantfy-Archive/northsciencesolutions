@@ -8,8 +8,8 @@
 				<span class="icon-bar"></span>
 			</button>
 		</div>
-		
-		<div class="navbar-collapse collapse navHeaderCollapse">
+
+		<div class="navbar-collapse collapse navHeaderCollapse" id="nss-navbar">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#home">Home</a></li>
 				<li><a href="#team">Team</a></li>
