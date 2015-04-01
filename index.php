@@ -13,7 +13,6 @@
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu
 				</p>
 			</div>
-
 		</div>
 	</header>
 

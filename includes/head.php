@@ -3,6 +3,7 @@
 <meta name="description" content="Employee Management System">
 <meta name="keywords" content="EMS,Employee,Management,System">
 <meta name="author" content="Ben Lorantfy, Grigoriy Kozyrev, Michael Dasilva, Kevin Li">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
 <!-- CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
