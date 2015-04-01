@@ -87,12 +87,12 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">Test tubes</h4>
 				</div>
-				<div class="container">
+				<div class="container col-md-12 category-modal">
 					<div class="row product-row">
-						<div class="col-md-4 col-md-offset-1">
-							<img src="img/product_1.jpg" class="product-image img-thumbnail"/>
+						<div class="col-md-4">
+							<img src="img/product_1.jpg" class="product-image img-thumbnail img-responsive center-block"/>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-7 center-block">
 							<p>
 								<h3>Description</h3>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
@@ -100,10 +100,10 @@
 						</div>
 					</div>
 					<div class="row product-row">
-						<div class="col-md-4 col-md-offset-1">
-							<img src="img/product_2.jpg" class="product-image img-thumbnail"/>
+						<div class="col-md-4">
+							<img src="img/product_2.jpg" class="product-image img-thumbnail img-responsive center-block"/>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-7 center-block">
 							<p>
 								<h3>Description</h3>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
@@ -111,10 +111,10 @@
 						</div>
 					</div>
 					<div class="row product-row">
-						<div class="col-md-4 col-md-offset-1">
-							<img src="img/product_3.jpg" class="product-image img-thumbnail"/>
+						<div class="col-md-4">
+							<img src="img/product_3.jpg" class="product-image img-thumbnail img-responsive center-block"/>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-7 center-block">
 							<p>
 								<h3>Description</h3>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
@@ -167,27 +167,33 @@
 				</div>
 			</div>
 			<div class="row sectionContent">
-				<div class="col-md-12">
+				<div class="col-md-12 map-image">
 					<img src="img/map.png">
 				</div>
 			</div>
-			<form>
+			<div class="row">
+				<div class="col-md-offset-2 col-md-10">
+					<div id="errors""></div>
+				</div>
+			</div>
+			
+			<form name="frmContact" id="frmContact" method="post" action="">
 				<div id="contactInput">
 					<div class="row">
-						<div class="col-md-1"></div>
-						<div class="col-md-10">
-							<input type="text" class="form-control" placeholder="Name"/>
-							<input type="email" class="form-control" placeholder="Email"/>
+						<div class="col-md-6 text-center">
+							<label for="fullName">Name</label>
+							<input type="text" name="fullName" id="fullName" class="form-control" placeholder="Name"/>
 						</div>
-
-						<div class="col-md-1"></div>
+						<div class="col-md-6 text-center">
+							<label for="email">Email</label>
+							<input type="email" name="email" id="email" class="form-control" placeholder="Email"/>
+						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-1"></div>
-						<div class="col-md-10">
-							<textarea id="commentInput" class="form-control" rows="10" placeholder="Type message here"></textarea>
+					<div class="row comment-div">
+						<div class="col-md-offset-2 col-md-8">
+							<label for="commentInput">Comments</label>
+							<textarea id="commentInput" name="commentInput" class="form-control" rows="10" placeholder="Type message here"></textarea>
 						</div>
-						<div class="col-md-1"></div>
 					</div>
 					<div class="row">
 						<div class="col-md-4"></div>

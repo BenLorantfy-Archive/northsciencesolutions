@@ -130,18 +130,28 @@ img.img-responsive.col-md-12{
 	
 }
 
+/*
 .col-md-6 {
 padding-left: 2em;
 padding-right: 2em;
 margin-top: 10px;
 }
-
+*/
 
 body {
 background-image: url("../img/concrete_seamless.png");
 background-repeat: repeat;
 }
 
+
+.col-md-12.map-image img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	height: 100%;
+}
+/*
 .col-md-12 img{
 	display: block;
 	margin-left: auto;
@@ -149,7 +159,7 @@ background-repeat: repeat;
 	width: 100%;
 	height: 100%;
 }
-
+*/
         input.form-control{
             display:inline-block;
             width: 49%;
@@ -167,7 +177,7 @@ background-repeat: repeat;
 textarea#commentInput{
     width: 100%;
     height: 100%;
-    margin-top: 3%;
+    /*margin-top: 3%;*/
     margin-left: auto;
     margin-right: auto;
 }
@@ -202,16 +212,32 @@ input.btn.btn-primary{
 	height: 400px;
 }
 
+.container.col-md-12.category-modal{
+	width: 100%;
+}
+
 .category-photo{
 	height: 250px;
 	width: 250px;
 }
 
 .product-image{
-	height: 250px;
-	width: 250px;
+	height: 50%;
+	width: 50%;
 }
 
 .product-row{
 	margin-top: 2em;
+}
+
+.comment-div{
+	margin-top: 1em;
+}
+
+#errors{
+	margin-top: 1em;
+}
+
+label.error{
+	color: red;
 }

@@ -36,4 +36,13 @@ $(function() {
 	function openAdmin(){
 		$('#adminModal').modal("show");
 	}
+	
+	validateContactForm();
+	
+	$("#frmContact").submit(function(){
+		if ($("#frmContact").valid())
+		{
+			alert("contact form validated");
+		}
+	});
 });
