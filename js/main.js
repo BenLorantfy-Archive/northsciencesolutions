@@ -1,8 +1,8 @@
 $(function() {
 	// Start navigation events
 	navigation();
-	
-	
+
+
 	//
 	// Handles page navigation
 	// When user navigates to a specific section, scroll page to that section
@@ -23,26 +23,34 @@ $(function() {
 						var scrollTop = 0;
 					}
 				}
-				$('html, body').animate({ scrollTop: scrollTop }, 500,"easeOutQuart");			
+				$('html, body').animate({ scrollTop: scrollTop }, 500,"easeOutQuart");
 			}
 		});
-		
+
 		// Handle hash the page loaded with
-		$(window).trigger("hashchange");		
-		
+		$(window).trigger("hashchange");
+
 	}
-	
-	// Open admin login	
+
+	// Open admin login
 	function openAdmin(){
 		$('#adminModal').modal("show");
 	}
-	
+
+	$("#errors").hide();
+
 	validateContactForm();
-	
+
 	$("#frmContact").submit(function(){
-		if ($("#frmContact").valid())
-		{
-			alert("contact form validated");
+		if($("#errors").html().trim() == ""){
+			alert("Form validated");
+			$("#errors").hide();
 		}
+		else{
+			$("#errors").show();
+		}
+
+
+
 	});
 });

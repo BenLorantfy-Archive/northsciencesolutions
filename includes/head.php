@@ -15,8 +15,8 @@
 <script src = "js/frameworks/msgbox.js"></script> 	<!-- Used to show quick messages to the user (i.e. saved succesfully ) -->
 <script src = "js/frameworks/postcall.js"></script> <!-- Used to call php functions from js more easily -->
 <script src = "js/frameworks/bootstrap.min.js"></script>
-<script src = "js/main.js"></script>
 <script src = "js/frameworks/jquery.validate.min.js"></script>
+<script src = "js/main.js"></script>
 <script src = "js/util.js"></script>
 
 <!--

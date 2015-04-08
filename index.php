@@ -172,38 +172,63 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-offset-2 col-md-10">
-					<div id="errors""></div>
+				<div class="col-xs-12 col-md-offset-2 col-md-8">
+					<div class="col-md-12">
+						<div class="alert alert-danger" role="alert" id="errors"></div>
+					</div>
+
+
 				</div>
 			</div>
-			
-			<form name="frmContact" id="frmContact" method="post" action="">
-				<div id="contactInput">
-					<div class="row">
-						<div class="col-md-6 text-center">
-							<label for="fullName">Name</label>
-							<input type="text" name="fullName" id="fullName" class="form-control" placeholder="Name"/>
+			<div class="row frm-clear-top">
+				<div class="col-md-12">
+					<form name="frmContact" id="frmContact" method="post" action="" class="col-md-12">
+						<div id="contactInput">
+							<div class="row">
+								<div class="col-md-offset-2 col-md-8 comment-input">
+									<label for="fullName">Name</label>
+									<br/>
+									<input type="text" name="fullName" id="fullName" class="form-control" placeholder="Name"/>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-offset-2 col-md-8 comment-input">
+									<label for="email">Email</label>
+									<br/>
+									<input type="email" name="email" id="email" class="form-control" placeholder="Email"/>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 col-md-offset-2 col-md-6 comment-input">
+									<label for="inquiryType">Inquiry type</label>
+									<br/>
+									<select name="inquiryType" class="form-control">
+										<option value="" selected>General</option>
+										<option value="">Product</option>
+										<option value="">Option 3</option>
+										<option value="">Option 4</option>
+									</select>
+								</div>
+							</div>
+							<div class="row comment-div">
+								<div class="col-md-offset-2 col-md-8 comment-input">
+									<label for="commentInput">Comments</label>
+									<textarea id="commentInput" name="commentInput" class="form-control" rows="10" placeholder="Type message here"></textarea>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4"></div>
+								<div class="col-md-4">
+									<input type="submit" class="btn btn-primary"/>
+								</div>
+								<div class="col-md-4"></div>
+							</div>
 						</div>
-						<div class="col-md-6 text-center">
-							<label for="email">Email</label>
-							<input type="email" name="email" id="email" class="form-control" placeholder="Email"/>
-						</div>
-					</div>
-					<div class="row comment-div">
-						<div class="col-md-offset-2 col-md-8">
-							<label for="commentInput">Comments</label>
-							<textarea id="commentInput" name="commentInput" class="form-control" rows="10" placeholder="Type message here"></textarea>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4"></div>
-						<div class="col-md-4">
-							<input type="submit" class="btn btn-primary"/>
-						</div>
-						<div class="col-md-4"></div>
-					</div>
+					</form>
 				</div>
-			</form>
+			</div>
+
 		</div>
 	</div>
 	<footer></footer>
