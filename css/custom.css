@@ -171,7 +171,6 @@ background-repeat: repeat;
 
 
 #contactInput{
-	margin-top: 3%;
 }
 
 textarea#commentInput{
@@ -231,7 +230,6 @@ input.btn.btn-primary{
 }
 
 .comment-div{
-	margin-top: 1em;
 }
 
 #errors{
@@ -240,4 +238,20 @@ input.btn.btn-primary{
 
 label.error{
 	color: red;
+}
+
+.comment-input{
+	margin-bottom: 1em;
+}
+
+.frm-clear-top{
+	margin-top: 1em;
+}
+
+.navbar-rules{
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-top: 1em;
 }
