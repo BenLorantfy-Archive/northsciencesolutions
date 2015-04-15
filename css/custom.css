@@ -8,8 +8,12 @@ html,body{
 	font-weight:100;
 	padding:0;
 	margin:0;
+
 }
 
+.nav>li{
+	font-size: 20px;
+}
 *{
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -17,6 +21,7 @@ html,body{
 	-ms-box-sizing:border-box;
 	-o-box-sizing:border-box;
 }
+
 
 #adminSection{
 	position: fixed;
@@ -33,7 +38,6 @@ html,body{
 	
 	
 	background-image: url("../img/background.png");
-	
 	background-size: cover;
 	height: 500px;
 }
@@ -254,4 +258,65 @@ label.error{
 	margin-right: auto;
 	margin-bottom: 0;
 	margin-top: 1em;
+}
+
+
+.nss-navbar{
+	margin-bottom: 0;
+	float: left;
+	
+}
+
+.navbar-white{
+	background-color: white;
+	
+	border-bottom: 0;
+	
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+	background-color: #646464;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover{
+	color: black;
+}
+
+.navbar-inverse .navbar-nav>li>a:visited{
+	color: black;
+}
+
+.navbar-inverse .navbar-brand:active{
+	color: black;
+}
+
+.navbar-inverse .navbar-brand:visited{
+	color: black;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar{
+	background-color: black;
+}
+
+.navbar-brand>img{
+	height: 150%;	
+	
+}
+
+.navbar-brand{
+	
+}
+
+p.banner-text{
+	text-align: left;
+	margin: 0;
+}
+
+.navbar{
+	min-height: 60px;
+}
+
+.navbar-nav>li>a{
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
