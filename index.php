@@ -8,10 +8,19 @@
 		<?php include("includes/nav.php"); ?>
 		<div class="jumbotron">
 			<div class="container jumbotron-text">
-				<h1>Title</h1>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu
-				</p>
+				<div class="row">
+					<div class="col-md-6">
+						<img src="img/logo.png"/>
+					</div>
+					<div class="col-md-6">
+						<h1>Title</h1>
+						<p class="banner-text">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu
+						</p>
+					</div>
+				</div>
+
+
 			</div>
 		</div>
 	</header>
