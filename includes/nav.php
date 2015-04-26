@@ -17,10 +17,13 @@
 		<div class="navbar-collapse collapse navHeaderCollapse" id="nss-navbar">
 			<ul class="nav navbar-nav">
 				<li><a href="#home">Home</a></li>
-				<li><a href="#team">Team</a></li>
-				<li><a href="#about">About</a></li>
-				<li><a href="#categories">Categories</a></li>
-				<li><a href="#contact">Contact</a></li>
+				<li><a href="#teamSection">Presidents Message</a></li>
+				<li><a href="#aboutSection">About</a></li>
+				<li><a href="#categoriesSection">Categories</a></li>
+				<li><a href="#newsSection">News</a></li>
+				<li><a href="#promotionsSection">Promotions</a></li>
+				<li><a href="#customerServiceSection">Customer Service</a></li>
+				<li><a href="#contactSection">Contact</a></li>
 			</ul>
 		</div>
 	</div>
