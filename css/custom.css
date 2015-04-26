@@ -19,6 +19,14 @@ html,body{
 	-o-box-sizing:border-box;
 }
 
+#toolbar{
+	position: fixed;
+	width: 50px;
+	height: 50px;
+	background-color:red;
+	z-index: 999999;
+}
+
 .nav>li{
 	font-size: 20px;
 }
