@@ -16,9 +16,9 @@ $(function() {
 				if(hash == "#home" || hash == "#" || hash == ""){
 					var scrollTop = 0;
 				}else{
-					var sectionTopElement = $(location.hash + "Section");
+					var sectionTopElement = $(location.hash);
 					if(sectionTopElement.length != 0){
-						var scrollTop = $(location.hash + "Section").offset().top;
+						var scrollTop = $(location.hash).offset().top;
 					}else{
 						var scrollTop = 0;
 					}

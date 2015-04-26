@@ -48,23 +48,14 @@
 		<div class="team">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 class="text-center">Team</h1>
+					<h1 class="text-center">Presidents Message</h1>
 				</div>
 			</div>
 			<div class="row sectionContent">
-				<div class="col-md-4">
+				<div class="col-md-6">
 					<img src="img/member_1.jpg" class="img-circle member-photo" />
-					<p>Jack Johnson</p>
-					<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru</p>
 				</div>
-				<div class="col-md-4">
-					<img src="img/member_2.jpg" class="img-circle member-photo" />
-					<p>Jack Johnson</p>
-					<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru</p>
-				</div>
-				<div class="col-md-4">
-					<img src="img/member_3.jpg" class="img-circle member-photo" />
-					<p>Jack Johnson</p>
+				<div class="col-md-6">
 					<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru</p>
 				</div>
 			</div>
@@ -82,19 +73,20 @@
 					<img src="img/about_image.jpg" class="img-rounded img-responsive" />
 				</div>
 				<div class="col-md-6">
-					<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru</p>
+					<p>Northern Science Solutions Ltd. (NSS) provides standard and custom made laboratory products, containers, medical devices, and consumable with a specific emphasis on complete solutions, competitive prices, and specifically tailored to the customer's needs.</p>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<!-- CATEGORY MODALS -->
-	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<!-- Laboratory equipment -->
+	<div class="modal fade modal-laboratory-equipment" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">Test tubes</h4>
+					<h4 class="modal-title">Laboratory Equipment</h4>
 				</div>
 				<div class="container col-md-12 category-modal">
 					<div class="row product-row">
@@ -108,9 +100,26 @@
 							</p>
 						</div>
 					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Laboratory supplies -->
+	<div class="modal fade modal-laboratory-supplies" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Laboratory Supplies</h4>
+				</div>
+				<div class="container col-md-12 category-modal">
 					<div class="row product-row">
 						<div class="col-md-4">
-							<img src="img/product_2.jpg" class="product-image img-thumbnail img-responsive center-block"/>
+							<img src="img/product_1.jpg" class="product-image img-thumbnail img-responsive center-block"/>
 						</div>
 						<div class="col-md-7 center-block">
 							<p>
@@ -119,9 +128,65 @@
 							</p>
 						</div>
 					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Apparel and personal protections -->
+	<div class="modal fade modal-apparel" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Apparel and personal protections</h4>
+				</div>
+				<div class="container col-md-12 category-modal">
 					<div class="row product-row">
 						<div class="col-md-4">
-							<img src="img/product_3.jpg" class="product-image img-thumbnail img-responsive center-block"/>
+							<img src="img/product_1.jpg" class="product-image img-thumbnail img-responsive center-block"/>
+						</div>
+						<div class="col-md-7 center-block">
+							<p>
+								<h3>Lab coat</h3>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
+							</p>
+						</div>
+					</div>
+					<div class="row product-row">
+						<div class="col-md-4">
+							<img src="img/product_2.jpg" class="product-image img-thumbnail img-responsive center-block"/>
+						</div>
+						<div class="col-md-7 center-block">
+							<p>
+								<h3>Gloves</h3>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Customized solutions -->
+	<div class="modal fade modal-customized-solutions" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Customized solutions</h4>
+				</div>
+				<div class="container col-md-12 category-modal">
+					<div class="row product-row">
+						<div class="col-md-4">
+							<img src="img/product_1.jpg" class="product-image img-thumbnail img-responsive center-block"/>
 						</div>
 						<div class="col-md-7 center-block">
 							<p>
@@ -143,24 +208,48 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h1 class="text-center">Categories</h1>
-					<p>
+					<p class="text-center">
 						Click an image to learn more about its products
 					</p>
 				</div>
 			</div>
 			<div class="row sectionContent">
 				<div class="col-md-3 categoryImage">
-					<a href="" data-toggle="modal" data-target=".bs-example-modal-lg"><img src="img/category_1.jpg" class="img-responsive img-thumbnail center-block category-photo"/></a>
+					<a href="" data-toggle="modal" data-target=".modal-laboratory-equipment"><img src="img/category_1.jpg" class="img-responsive img-thumbnail center-block category-photo"/></a>
 				</div>
 				<div class="col-md-3 categoryImage">
-					<img src="img/category_2.jpg" class="img-responsive img-thumbnail center-block category-photo"/>
+					<a href="" data-toggle="modal" data-target=".modal-laboratory-supplies"><img src="img/category_2.jpg" class="img-responsive img-thumbnail center-block category-photo"/></a>
 				</div>
 				<div class="col-md-3 categoryImage">
-					<img src="img/category_3.jpg" class="img-responsive img-thumbnail center-block category-photo"/>
+					<a href="" data-toggle="modal" data-target=".modal-apparel"><img src="img/category_3.jpg" class="img-responsive img-thumbnail center-block category-photo"/></a>
 				</div>
 				<div class="col-md-3 categoryImage">
-					<img src="img/category_4.jpg" class="img-responsive img-thumbnail center-block category-photo"/>
+					<a href="" data-toggle="modal" data-target=".modal-customized-solutions"><img src="img/category_4.jpg" class="img-responsive img-thumbnail center-block category-photo"/></a>
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="newsSection" class="container team">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 class="text-center">News</h1>
+			</div>
+		</div>
+	</div>
+
+	<div id="promotionsSection" class="container team">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 class="text-center">Promotions</h1>
+			</div>
+		</div>
+	</div>
+
+	<div id="customerServiceSection" class="container team">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 class="text-center">Customer Service</h1>
 			</div>
 		</div>
 	</div>
@@ -185,8 +274,6 @@
 					<div class="col-md-12">
 						<div class="alert alert-danger" role="alert" id="errors"></div>
 					</div>
-
-
 				</div>
 			</div>
 			<div class="row frm-clear-top">
@@ -240,6 +327,7 @@
 
 		</div>
 	</div>
-	<footer></footer>
+	<footer>
+	</footer>
 </body>
 </html>

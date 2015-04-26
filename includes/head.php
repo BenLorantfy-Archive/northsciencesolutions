@@ -1,3 +1,7 @@
+<title>North Science Solutions</title>
+
+<link rel="icon" href="img/favicon.png">
+
 <!-- META -->
 <meta charset="UTF-8">
 <meta name="description" content="Employee Management System">
