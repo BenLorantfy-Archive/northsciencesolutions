@@ -4,9 +4,9 @@
 
 <!-- META -->
 <meta charset="UTF-8">
-<meta name="description" content="Employee Management System">
-<meta name="keywords" content="EMS,Employee,Management,System">
-<meta name="author" content="Ben Lorantfy, Grigoriy Kozyrev, Michael Dasilva, Kevin Li">
+<meta name="description" content="North Science Solutions">
+<meta name="keywords" content="nss,northsciencesolutions,north,science">
+<meta name="author" content="Ben Lorantfy, Thomas Tran, Ahmed Hussain">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
 <!-- CSS -->
@@ -20,8 +20,8 @@
 <script src = "js/frameworks/postcall.js"></script> <!-- Used to call php functions from js more easily -->
 <script src = "js/frameworks/bootstrap.min.js"></script>
 <script src = "js/frameworks/jquery.validate.min.js"></script>
+<script src = "js/app.js"></script>
 <script src = "js/main.js"></script>
-<script src = "js/util.js"></script>
 
 <!--
 	HTML5 SHIV

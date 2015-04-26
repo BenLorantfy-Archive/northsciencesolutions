@@ -6,6 +6,7 @@
 <body data-spy="scroll" data-target="#nss-navbar">
 	<header>
 		<?php include("includes/nav.php"); ?>
+		<div id = "toolbar" style="display:none; left:0; top:0;"></div>
 		<div class="jumbotron">
 			<div class="container jumbotron-text">
 				<div class="row">
@@ -38,7 +39,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Login</button>
+					<button id = "loginButton" type="button" class="btn btn-primary">Login</button>
 				</div>
 			</div>
 		</div>
