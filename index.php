@@ -331,7 +331,7 @@
 	<footer>
 		<div id = "social" align="right">
 			<a href="https://www.facebook.com/"><img src="img/facebook.png"/></a>
-			<a href="https://twitter.com/?lang=en"><img src="img/twitter.png"/></a>
+			<a href="https://twitter.com/?lang=en"><img src="img/twitter.png" height="48" width="48"/></a>
 			<a href="https://www.linkedin.com/uas/login"><img src="img/linkedin.png"/></a>
 		</div>
 	</footer>
