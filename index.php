@@ -10,13 +10,15 @@
 			<div class="container jumbotron-text">
 				<div class="row">
 					<div class="col-md-6">
-						<img src="img/logo.png"/>
+						<img src="img/logo.png" class="img-responsive jumbotron-logo-image"/>
 					</div>
 					<div class="col-md-6">
-						<h1>Title</h1>
-						<p class="banner-text">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu
-						</p>
+						<h1>North Science Solutions</h1>
+						<ul class="banner-unordered-list">
+							<li>Diverse stock of laboratory supplies and consumables</li>
+							<li>Complete solutions, competitive prices, and tailored to your needs</li>
+							<li>Round the clock customer service</li>
+						</ul>
 					</div>
 				</div>
 
@@ -44,6 +46,42 @@
 		</div>
 	</div>
 
+	<div id="aboutSection"></div>
+		<div class="container">
+			<div class="team">
+				<div class="row">
+					<h1 class="text-center">About</h1>
+				</div>
+			<div class="row sectionContent">
+				<div class="col-md-3 col-xs-3">
+					<img src="img/about_image4.jpg" class="img-rounded img-responsive center-block" />
+				</div>
+				<div class="col-md-9 col-xs-9">
+					<div class="row">
+						<div class="col-md-12">
+							<p>Northern Science Solutions Ltd. (NSS) provides standard and custom made laboratory products, containers, medical devices, and consumable with a specific emphasis on complete solutions, competitive prices, and specifically tailored to the customer's needs.</p>
+						</div>
+						<div class="col-md-12">
+							<h2>Our Mission</h2>
+							<p>Northern Science Solutions Ltd. (NSS) provides standard and custom made laboratory products, containers, medical devices, and consumable with a specific emphasis on complete solutions, competitive prices, and specifically tailored to the customer's needs.</p>
+						</div>
+						<div class="col-md-12">
+							<h2>Why NSS?</h2>
+							<ul class="why-nss">
+								<li>NSS offers a comprehensive line of custom made, top quality product tailored towards the customers' needs. This makes NSS the first company in Canada to offer custom tailored solutions.</li>
+								<li>NSS offers competitive prices for our product.</li>
+								<li>NSS is flexible; providing end-to-end solution to satisfy the customers' needs.</li>
+								<li>NSS is customer focused; providing high quality, personal, and friendly service providing advice and support for all of our customers' requirements.</li>
+								<li>NSS also offers fast delivery to the customers to meet their deadlines.</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div id="teamSection" class="container">
 		<div class="team">
 			<div class="row">
@@ -57,23 +95,6 @@
 				</div>
 				<div class="col-md-6">
 					<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="aboutSection"></div>
-	<div class="container">
-		<div class="team">
-			<div class="row">
-				<h1 class="text-center">About</h1>
-			</div>
-			<div class="row sectionContent">
-				<div class="col-md-6">
-					<img src="img/about_image.jpg" class="img-rounded img-responsive" />
-				</div>
-				<div class="col-md-6">
-					<p>Northern Science Solutions Ltd. (NSS) provides standard and custom made laboratory products, containers, medical devices, and consumable with a specific emphasis on complete solutions, competitive prices, and specifically tailored to the customer's needs.</p>
 				</div>
 			</div>
 		</div>
@@ -95,7 +116,7 @@
 						</div>
 						<div class="col-md-7 center-block">
 							<p>
-								<h3>Description</h3>
+								<h4>Description</h4>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
 							</p>
 						</div>
@@ -123,7 +144,7 @@
 						</div>
 						<div class="col-md-7 center-block">
 							<p>
-								<h3>Description</h3>
+								<h4>Description</h4>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
 							</p>
 						</div>
@@ -151,7 +172,7 @@
 						</div>
 						<div class="col-md-7 center-block">
 							<p>
-								<h3>Lab coat</h3>
+								<h4>Lab coat</h4>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
 							</p>
 						</div>
@@ -162,7 +183,7 @@
 						</div>
 						<div class="col-md-7 center-block">
 							<p>
-								<h3>Gloves</h3>
+								<h4>Gloves</h4>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
 							</p>
 						</div>
@@ -190,7 +211,7 @@
 						</div>
 						<div class="col-md-7 center-block">
 							<p>
-								<h3>Description</h3>
+								<h4>Description</h4>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
 							</p>
 						</div>
@@ -230,26 +251,153 @@
 		</div>
 	</div>
 
-	<div id="newsSection" class="container team">
-		<div class="row">
-			<div class="col-md-12">
-				<h1 class="text-center">News</h1>
+	<div id="newsSection" class="container">
+		<div class="team">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="text-center">News</h1>
+				</div>
+			</div>
+			<!-- News item 1 begin -->
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4 news-section-image">
+					<img src="img/news-image2.png" class="img-responsive img-rounded news-item-photo"/>
+				</div>
+			</div>
+			<div class="row news-item-text news-item">
+				<div class="col-md-10 col-md-offset-1 col-xs-12">
+					<h2>News item heading</h2>
+					<p>
+					News item #1: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
+					</p>
+				</div>
+			</div>
+			<!-- News item 1 end -->
+			<!-- News item 2 begin -->
+			<div class="row news-section-image">
+				<div class="col-md-4 col-md-offset-4">
+					<img src="img/news-image2.png" class="img-responsive img-rounded news-item-photo"/>
+				</div>
+			</div>
+			<div class="row news-item-text news-item">
+				<div class="col-md-6 col-md-offset-1 col-xs-8">
+					<p>
+					<h2>News item heading</h2>
+					News item #2: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
+					</p>
+				</div>
+				<div class="col-md-4 news-section-image col-xs-4">
+					<img src="img/news-image2.png" class="img-responsive img-circle "/>
+				</div>
+			</div>
+			<!-- News item 2 end -->
+		</div>
+	</div>
+
+	<div id="promotionsSection" class="container">
+		<div class="team">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="text-center">Promotions</h1>
+				</div>
+			</div>
+			<!-- News item 1 begin -->
+			<div class="row promotion-item">
+				<div class="col-md-12 promotion-item-image col-xs-12">
+					<img src="img/promotion-image.png" class="img-responsive img-rounded promotion-item-photo center-block"/>
+				</div>
+			</div>
+			<div class="row promotion-item-text promotion-item">
+				<div class="col-md-10 col-md-offset-1 col-xs-12">
+					<h2>Promotion item heading</h2>
+					<p>
+					Promotion item #1: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
+					</p>
+				</div>
+			</div>
+			<!-- News item 1 end -->
+			<!-- News item 2 begin -->
+			<div class="row promotion-item-image promotion-item">
+				<div class="col-md-6 col-md-offset-3">
+					<img src="img/promotion-image.png" class="img-responsive img-rounded promotion-item-photo center-block"/>
+				</div>
+			</div>
+			<div class="row promotion-item-text promotion-item">
+				<div class="col-md-6 col-md-offset-1 col-xs-8">
+					<p>
+					<h2>Promotion item heading</h2>
+					Promotion item #2: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
+					</p>
+				</div>
+				<div class="col-md-4 promotion-item-image col-xs-4">
+					<img src="img/news-image2.png" class="img-responsive img-circle"/>
+				</div>
+			</div>
+			<!-- News item 2 end -->
+		</div>
+	</div>
+
+	<div id="customerServiceSection" class="container">
+		<div class="team">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="text-center">Customer Service</h1>
+				</div>
+			</div>
+			<div class="row customer-service-item">
+				<div class="col-md-12">
+					<h3>Shipping Policy</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+				</div>
+			</div>
+			<div class="row customer-service-item">
+				<div class="col-md-12">
+					<h3>Terms</h3>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+				</div>
+			</div>
+			<div class="row additional-concerns customer-service-item">
+				<div class="col-md-12">
+					<p>
+						If you have any additional concerns, please use the contact form at the bottom of this page.
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="promotionsSection" class="container team">
-		<div class="row">
-			<div class="col-md-12">
-				<h1 class="text-center">Promotions</h1>
+	<div id="servicesSection" class="container">
+		<div class="team">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="text-center">Services</h1>
+				</div>
 			</div>
-		</div>
-	</div>
-
-	<div id="customerServiceSection" class="container team">
-		<div class="row">
-			<div class="col-md-12">
-				<h1 class="text-center">Customer Service</h1>
+			<div class="row services-item">
+				<div class="col-md-4">
+					<img src="img/marketing-services-image.png" class="img-responsive img-rounded services-image"/>
+				</div>
+				<div class="col-md-8">
+					<div class="row services-text">
+						<div class="col-md-12">
+							<h2 class="services-header">Marketing services</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row services-item">
+				<div class="col-md-4">
+					<img src="img/consulting-services-image.png" class="img-responsive img-rounded services-image"/>
+				</div>
+				<div class="col-md-8">
+					<div class="row services-text">
+						<div class="col-md-12">
+							<h2 class="services-header">Consulting services</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -260,7 +408,7 @@
 				<div class="col-md-12">
 					<div id="contactUsHeader">
 						<h1 class="text-center">Contact us</h1>
-						<h3 class="text-center">123 Sesame Street</h3>
+						<h3 class="text-center">912 Gardenpath Pl, Kitchener, ON, N2N 3S3</h3>
 					</div>
 				</div>
 			</div>
@@ -301,8 +449,9 @@
 									<select name="inquiryType" class="form-control">
 										<option value="" selected>General</option>
 										<option value="">Product</option>
-										<option value="">Option 3</option>
-										<option value="">Option 4</option>
+										<option value="">Shipping</option>
+										<option value="">Sales</option>
+										<option value="">Careers</option>
 									</select>
 								</div>
 							</div>
