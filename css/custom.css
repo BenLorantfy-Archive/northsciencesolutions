@@ -24,10 +24,39 @@ p{
 
 #toolbar{
 	position: fixed;
-	width: 50px;
-	height: 50px;
-	background-color:red;
 	z-index: 999999;
+	background-color:white;
+	border-radius: 3px;
+	padding: 5px;
+	
+	border: 1px solid black;
+	-webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+#adminToolbarHeader{
+	cursor:move;
+}
+
+.toolbarOption{
+	padding:5px;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.adminTool{
+	display: none;
+}
+
+.delete{
+	position: absolute;
+	padding:10px;
+	cursor: pointer;
+}
+
+.delete:hover{
+	color: red;
 }
 
 .nav>li{
@@ -369,7 +398,3 @@ p.banner-text{
 .services-text{
 	margin-top: 30px;
 }
-=======
->>>>>>> abd9aafa6e9a1aba71c321f7322b0932a4f51835
-=======
->>>>>>> abd9aafa6e9a1aba71c321f7322b0932a4f51835

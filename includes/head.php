@@ -9,10 +9,10 @@
 <meta name="author" content="Ben Lorantfy, Thomas Tran, Ahmed Hussain">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+<!-- Fonts -->
+<link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+
 <!-- CSS -->
-<!--
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
--->
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/custom.css">
 
@@ -24,6 +24,13 @@
 <script src = "js/frameworks/bootstrap.min.js"></script>
 <script src = "js/frameworks/jquery.validate.min.js"></script>
 <script src = "js/app.js"></script>
+
+<!-- JS config -->
+<script>
+	App.isLogged = <?=$users->isLogged() ? "true" : "false"?>
+</script>
+
+<!-- JS entry point -->
 <script src = "js/main.js"></script>
 
 <!--

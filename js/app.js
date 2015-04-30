@@ -33,13 +33,23 @@ var App = (function(){
 	function openAdmin(){
 		$('#adminModal').modal("show");
 		$("#loginButton").click(function(){
-			App.isLogged = true;
-			startAdminMode();
+			$.postCall("Users.login","ben","password",function(loggedIn){
+				if(loggedIn){
+					App.isLogged = true;
+					startAdminMode();
+				}else{
+					$.msgBox.error("Invalid credentials");
+				}
+			},function(data){
+				$.msgBox.error("An error occurred while trying to login");
+			});
 		});
 	}
 	
 	function startAdminMode(){
 		$("#toolbar").show();
+		$(".editable").attr("contenteditable","true");
+		$(".adminTool").show();
 	}
 	
 	//
@@ -157,12 +167,64 @@ var App = (function(){
 		$(document).mouseup(function(){
 			moving = false;
 		});
+	
+		$("#bold").click(function(){
+			document.execCommand("bold");
+		})
+		
+		$("#underline").click(function(){
+			document.execCommand("underline");
+		})
+		
+		$("#italic").click(function(){
+			document.execCommand("italic");
+		})
+		
+		$("#save").click(function(){
+			var content = {};
+			$(".content").each(function(){
+				var id = $(this).attr("id");
+				if(id){
+					content[id] = $(this).html();
+				}else{
+					console.warn("Content area missing id");
+				}
+			});
+			
+			$.postCall("Content.save",content,function(saved){
+				if(saved){
+					$.msgBox.success("Content saved");
+				}else{
+					$.msgBox.error("An error occurred while trying to save content");
+				}
+			},function(data){
+				$.msgBox.error("An error occurred while trying to save content");
+				console.error(data);
+			})
+		})
+		
+		$("#categoriesSection").on("click .delete",function(){
+			
+		});
 	}
 	
 	//
 	// Initlize app
 	//	
 	function start(){
+		//
+		// config $.postCall
+		//
+		$.postCall.config({
+			 prefix:"php/"
+			,suffix:".class.php"
+		});
+		
+		//
+		// Init $.msgBox
+		//
+		$.msgBox.init();
+	
 		//
 		// If user logged in as admin, start admin mode
 		//
