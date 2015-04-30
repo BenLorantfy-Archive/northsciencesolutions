@@ -52,38 +52,6 @@ class Users{
 		return $success;
 	}
 	
-	function userExists($username){
-		$exists = false;
-
-		$query = $this->db->prepare("SELECT id FROM User WHERE username = ? LIMIT 1");
-		if(!$query) throw new Exception($this->db->error);
-		if(!$query->bind_param("s",$username)) throw new Exception($this->db->error);
-		if(!$query->execute()) throw new Exception($this->db->error);
-		if(!$query->store_result()) throw new Exception($this->db->error);
-		
-		return $query->num_rows == 1;
-	}
-	
-	function register($username,$password){
-		$success = false;
-			
-		if(!$this->userExists($username)){
-			$hashedPassword = password_hash($password,PASSWORD_DEFAULT);
-			$insert = $this->db->prepare("INSERT INTO User (username,password) VALUES (?,?)");
-	
-			if(!$insert) throw new Exception($this->db->error);	
-			if(!$insert->bind_param("ss",$username,$hashedPassword)) throw new Exception($this->db->error);
-			if(!$insert->execute()) throw new Exception($this->db->error);
-			
-			$_SESSION["id"] = $insert->insert_id;
-			$_SESSION["username"] = $username;
-			$_SESSION["password"] = $password;
-			$success = true;
-		}
-
-		return $success;
-	}
-	
 	/*
 	 * 	FUNCTION 	: isLogged
 	 *
