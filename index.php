@@ -1,12 +1,30 @@
+<?php
+	session_start();
+	require_once("php/users.class.php");
+	require_once("php/content.class.php");
+	require_once("php/products.class.php");
+	$users = new Users();
+	$content = new Content();
+	$products = new Products();
+?>
 <!DOCTYPE html>
 <html>
 <head>
+	<?php
+		$text = $content->getAll();
+	?>
 	<?php include("includes/head.php"); ?>
 </head>
 <body data-spy="scroll" data-target="#nss-navbar">
 	<header>
 		<?php include("includes/nav.php"); ?>
-		<div id = "toolbar" style="display:none; left:0; top:0;"></div>
+		<div id = "toolbar" style="display:none; left:0; top:0;">
+			<div id = "adminToolbarHeader">Admin Tools</div>
+			<div id = "bold" class = "toolbarOption"><i class="fa fa-bold"></i></div>
+			<div id = "underline" class = "toolbarOption"><i class="fa fa-underline"></i></div>
+			<div id = "italic"class = "toolbarOption"><i class="fa fa-italic"></i></div>
+			<div id = "save" class = "toolbarOption"><i class="fa fa-save"></i></div>
+		</div>
 		<div class="jumbotron">
 			<div class="container jumbotron-text">
 				<div class="row">
@@ -15,10 +33,8 @@
 					</div>
 					<div class="col-md-6">
 						<h1>North Science Solutions</h1>
-						<ul class="banner-unordered-list">
-							<li>Diverse stock of laboratory supplies and consumables</li>
-							<li>Complete solutions, competitive prices, and tailored to your needs</li>
-							<li>Round the clock customer service</li>
+						<ul id = "bannerContent" class="content editable banner-unordered-list">
+							<?= $text["bannerContent"]; ?>
 						</ul>
 					</div>
 				</div>
@@ -60,21 +76,9 @@
 				<div class="col-md-9 col-xs-9">
 					<div class="row">
 						<div class="col-md-12">
-							<p>Northern Science Solutions Ltd. (NSS) provides standard and custom made laboratory products, containers, medical devices, and consumable with a specific emphasis on complete solutions, competitive prices, and specifically tailored to the customer's needs.</p>
-						</div>
-						<div class="col-md-12">
-							<h2>Our Mission</h2>
-							<p>Northern Science Solutions Ltd. (NSS) provides standard and custom made laboratory products, containers, medical devices, and consumable with a specific emphasis on complete solutions, competitive prices, and specifically tailored to the customer's needs.</p>
-						</div>
-						<div class="col-md-12">
-							<h2>Why NSS?</h2>
-							<ul class="why-nss">
-								<li>NSS offers a comprehensive line of custom made, top quality product tailored towards the customers' needs. This makes NSS the first company in Canada to offer custom tailored solutions.</li>
-								<li>NSS offers competitive prices for our product.</li>
-								<li>NSS is flexible; providing end-to-end solution to satisfy the customers' needs.</li>
-								<li>NSS is customer focused; providing high quality, personal, and friendly service providing advice and support for all of our customers' requirements.</li>
-								<li>NSS also offers fast delivery to the customers to meet their deadlines.</li>
-							</ul>
+							<div id = "aboutContent" class = "content editable">
+								<?= $text["aboutContent"]; ?>
+							</div>
 						</div>
 					</div>
 
@@ -95,7 +99,7 @@
 					<img src="img/member_1.jpg" class="img-circle member-photo" />
 				</div>
 				<div class="col-md-6">
-					<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru</p>
+					<p class="editable">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru</p>
 				</div>
 			</div>
 		</div>
@@ -129,6 +133,7 @@
 			</div>
 		</div>
 	</div>
+	<?=$products->getProducts();?>
 
 	<!-- Laboratory supplies -->
 	<div class="modal fade modal-laboratory-supplies" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -236,7 +241,9 @@
 				</div>
 			</div>
 			<div class="row sectionContent">
-				<div class="col-md-3 categoryImage">
+				<?=$products->getCategories()?>
+				<!--
+<div class="col-md-3 categoryImage">
 					<a href="" data-toggle="modal" data-target=".modal-laboratory-equipment"><img src="img/category_1.jpg" class="img-responsive img-thumbnail center-block category-photo"/></a>
 				</div>
 				<div class="col-md-3 categoryImage">
@@ -248,6 +255,7 @@
 				<div class="col-md-3 categoryImage">
 					<a href="" data-toggle="modal" data-target=".modal-customized-solutions"><img src="img/category_4.jpg" class="img-responsive img-thumbnail center-block category-photo"/></a>
 				</div>
+-->
 			</div>
 		</div>
 	</div>
@@ -259,7 +267,14 @@
 					<h1 class="text-center">News</h1>
 				</div>
 			</div>
+			<div class = "row">
+				<div id = "newsContent" class="col-md-10 col-md-offset-1 content editable">
+					<?= $text["newsContent"]; ?>
+				</div>
+			</div>
 			<!-- News item 1 begin -->
+
+<!--
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 news-section-image">
 					<img src="img/news-image2.png" class="img-responsive img-rounded news-item-photo"/>
@@ -273,8 +288,10 @@
 					</p>
 				</div>
 			</div>
+-->
 			<!-- News item 1 end -->
 			<!-- News item 2 begin -->
+<!--
 			<div class="row news-section-image">
 				<div class="col-md-4 col-md-offset-4">
 					<img src="img/news-image2.png" class="img-responsive img-rounded news-item-photo"/>
@@ -291,6 +308,7 @@
 					<img src="img/news-image2.png" class="img-responsive img-circle "/>
 				</div>
 			</div>
+-->
 			<!-- News item 2 end -->
 		</div>
 	</div>
@@ -302,7 +320,13 @@
 					<h1 class="text-center">Promotions</h1>
 				</div>
 			</div>
+			<div class = "row">
+				<div id = "promotionsContent" class="col-md-10 col-md-offset-1 content editable">
+					<?= $text["promotionsContent"]; ?>
+				</div>
+			</div>
 			<!-- News item 1 begin -->
+<!--
 			<div class="row promotion-item">
 				<div class="col-md-12 promotion-item-image col-xs-12">
 					<img src="img/promotion-image.png" class="img-responsive img-rounded promotion-item-photo center-block"/>
@@ -316,9 +340,11 @@
 					</p>
 				</div>
 			</div>
+			-->
 			<!-- News item 1 end -->
 			<!-- News item 2 begin -->
-			<div class="row promotion-item-image promotion-item">
+			<!--
+<div class="row promotion-item-image promotion-item">
 				<div class="col-md-6 col-md-offset-3">
 					<img src="img/promotion-image.png" class="img-responsive img-rounded promotion-item-photo center-block"/>
 				</div>
@@ -334,6 +360,7 @@
 					<img src="img/news-image2.png" class="img-responsive img-circle"/>
 				</div>
 			</div>
+-->
 			<!-- News item 2 end -->
 		</div>
 	</div>
