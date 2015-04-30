@@ -6,13 +6,12 @@
 	$users = new Users();
 	$content = new Content();
 	$products = new Products();
+	
+	$text = $content->getAll();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<?php
-		$text = $content->getAll();
-	?>
 	<?php include("includes/head.php"); ?>
 </head>
 <body data-spy="scroll" data-target="#nss-navbar">
@@ -105,130 +104,7 @@
 		</div>
 	</div>
 
-	<!-- CATEGORY MODALS -->
-	<!-- Laboratory equipment -->
-	<div class="modal fade modal-laboratory-equipment" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">Laboratory Equipment</h4>
-				</div>
-				<div class="container col-md-12 category-modal">
-					<div class="row product-row">
-						<div class="col-md-4">
-							<img src="img/product_1.jpg" class="product-image img-thumbnail img-responsive center-block"/>
-						</div>
-						<div class="col-md-7 center-block">
-							<p>
-								<h4>Description</h4>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
 	<?=$products->getProducts();?>
-
-	<!-- Laboratory supplies -->
-	<div class="modal fade modal-laboratory-supplies" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">Laboratory Supplies</h4>
-				</div>
-				<div class="container col-md-12 category-modal">
-					<div class="row product-row">
-						<div class="col-md-4">
-							<img src="img/product_1.jpg" class="product-image img-thumbnail img-responsive center-block"/>
-						</div>
-						<div class="col-md-7 center-block">
-							<p>
-								<h4>Description</h4>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Apparel and personal protections -->
-	<div class="modal fade modal-apparel" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">Apparel and personal protections</h4>
-				</div>
-				<div class="container col-md-12 category-modal">
-					<div class="row product-row">
-						<div class="col-md-4">
-							<img src="img/product_1.jpg" class="product-image img-thumbnail img-responsive center-block"/>
-						</div>
-						<div class="col-md-7 center-block">
-							<p>
-								<h4>Lab coat</h4>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
-							</p>
-						</div>
-					</div>
-					<div class="row product-row">
-						<div class="col-md-4">
-							<img src="img/product_2.jpg" class="product-image img-thumbnail img-responsive center-block"/>
-						</div>
-						<div class="col-md-7 center-block">
-							<p>
-								<h4>Gloves</h4>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Customized solutions -->
-	<div class="modal fade modal-customized-solutions" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">Customized solutions</h4>
-				</div>
-				<div class="container col-md-12 category-modal">
-					<div class="row product-row">
-						<div class="col-md-4">
-							<img src="img/product_1.jpg" class="product-image img-thumbnail img-responsive center-block"/>
-						</div>
-						<div class="col-md-7 center-block">
-							<p>
-								<h4>Description</h4>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<div id="categoriesSection" class="container">
 		<div class="team">

@@ -62,14 +62,14 @@ class Products{
 									$productTitle = $productRow["title"];
 									$productDescription = $productRow["description"];
 												
-									$markup .= "<div class='row product-row'>
+									$markup .= "<div class='row product-row' data-product-id = '$productId'>
 										<div class='col-md-4'>
 											<img src='img/products/$productId.$productExt' class='product-image img-thumbnail img-responsive center-block'/>
 										</div>
 										<div class='col-md-7 center-block'>
 											<p>
-												<h4>$productTitle</h4>
-												$productDescription
+												<h4 class = 'editable productTitle'>$productTitle</h4>
+												<div class = 'editable productDescription'>$productDescription</div>
 											</p>
 										</div>
 									</div>";								
@@ -77,6 +77,7 @@ class Products{
 								
 			$markup .= "</div>
 						<div class='modal-footer'>
+							<button type='button' class='btn btn-default adminTool addNewProduct'>Add New Product</button>
 							<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
 						</div>
 					</div>
@@ -87,10 +88,61 @@ class Products{
 		}
 		return $markup;
 	}
-
+	
+	function addProduct(){
+		if($this->users->isLogged()){
+			$extension = "jpg";
+			$title = "My New Product";
+			$description = "My product description";
+			$categoryId = 1;
+			$insert = $this->db->prepare("INSERT INTO Product (extension,title,description,categoryId) VALUES (?,?,?,?)");
+	
+			if(!$insert) throw new Exception($this->db->error);	
+			if(!$insert->bind_param("sssi",$extension,$title,$description,$categoryId)) throw new Exception($this->db->error);
+			if(!$insert->execute()) throw new Exception($this->db->error);
+			
+			$productId = $this->db->insert_id;
+			
+			return "<div class='row product-row' data-product-id = '$productId'>
+				<div class='col-md-4'>
+					<img src='img/new.jpg' class='product-image img-thumbnail img-responsive center-block'/>
+				</div>
+				<div class='col-md-7 center-block'>
+					<p>
+						<h4 class = 'editable productTitle' contenteditable = 'true'>$title</h4>
+						<div class = 'editable productDescription' contenteditable = 'true'>$description</div>
+					</p>
+				</div>
+			</div>";				
+		}else{
+			return false;
+		}
+	}
+	
+	function changeImage(){
+		
+	}
+	
+	function save($products){
+		$success = false;
+		if($this->users->isLogged()){
+			foreach($products as $value){
+				$title = $value->title;
+				$description = $value->description;
+				$id = $value->id;
+				$update = $this->db->prepare("UPDATE Product SET description = ?, title = ? WHERE id = ?");
+		
+				if(!$update) throw new Exception($this->db->error);	
+				if(!$update->bind_param("ssi",$description,$title,$id)) throw new Exception($this->db->error);
+				if(!$update->execute()) throw new Exception($this->db->error);				
+			}
+			$success = true;
+		}
+		return $success;
+	}
+		
 	function getCategories(){
 		$markup = "";
-
 				
 		if(!$result = $this->db->query("SELECT id,extension,title FROM Categories")) throw new Exception($this->db->error);
 		while($row = $result->fetch_assoc()){

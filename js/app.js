@@ -181,6 +181,10 @@ var App = (function(){
 		})
 		
 		$("#save").click(function(){
+		
+			//
+			// Save content
+			//
 			var content = {};
 			$(".content").each(function(){
 				var id = $(this).attr("id");
@@ -200,11 +204,47 @@ var App = (function(){
 			},function(data){
 				$.msgBox.error("An error occurred while trying to save content");
 				console.error(data);
+			});
+			
+			//
+			// Save products
+			//
+			var products = [];
+			$(".product-row").each(function(){
+				var id = $(this).data("product-id");
+				var title = $(this).find(".productTitle").html();
+				var description = $(this).find(".productDescription").html();
+				products.push({
+					 id:id
+					,title:title
+					,description:description
+				})
+			});
+			console.log(products);
+			$.postCall("Products.save",products,function(data){
+				console.log(data);
+			},function(data){
+				console.error(data);
 			})
 		})
 		
 		$("#categoriesSection").on("click .delete",function(){
 			
+		});
+	
+		$(".addNewProduct").click(function(){
+			var modal = $(this).closest(".modal");
+			$.postCall("Products.addProduct",function(markup){
+				if(markup){
+					modal.find(".category-modal").append(markup);
+				}else{
+					$.msgBox.error("An error occurred while trying to add product");
+					console.log(markup);
+				}
+			},function(data){
+				$.msgBox.error("An error occurred while trying to add product");
+				console.log(data);
+			});
 		});
 	}
 	
