@@ -1,7 +1,7 @@
 /*
  * Maupload
  *
- * Version 1.0
+ * Version 1.0.1
  *
  * Maupload (or Multiple Ajax Upload) mimics uploading a file or files using Ajax, in that the 
  * window does not require refreshing to upload file(s). Works with the HTML5 multiple attribute.
@@ -38,7 +38,8 @@
 				
 				if(typeof posts == "undefined" || typeof posts == "object"){
 					//Creates iframe with form
-					var iframe = $("body").append('<iframe style = "display:none;"></iframe>').find("iframe");
+					var iframe = $("<iframe style = 'display:none;'></iframe>");
+					$("body").append(iframe);
 					var contents = iframe.contents();
 					var form = contents.find("body").append('<form action="' + action + '" method="post" enctype="multipart/form-data"></form>').find("form");
 			
@@ -65,8 +66,6 @@
 						}else if(typeof callback != "undefined"){
 							throw "Callback function must be of type function.";
 						}
-						
-						
 					});
 
 				}else{
@@ -77,12 +76,7 @@
 				throw "Target must be an input element with a type attribute of 'file'.";
 			}
 			
-			
-			
 			return this;
-
-			
-			
 
 	};
 }(jQuery));
