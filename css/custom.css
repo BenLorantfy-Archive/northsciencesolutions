@@ -22,6 +22,10 @@ p{
 	-o-box-sizing:border-box;
 }
 
+.deleteProduct{
+	margin-top:5px;
+}
+
 #toolbar{
 	position: fixed;
 	z-index: 999999;

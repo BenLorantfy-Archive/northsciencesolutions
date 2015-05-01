@@ -39,13 +39,12 @@ class Products{
 		$markup = "";
 
 				
-		if(!$categoryResult = $this->db->query("SELECT id,extension,title FROM Categories")) throw new Exception($this->db->error);
+		if(!$categoryResult = $this->db->query("SELECT id,title FROM Category")) throw new Exception($this->db->error);
 		while($categoryRow = $categoryResult->fetch_assoc()){
 			$categoryId = $categoryRow["id"];
-			$categoryExt = $categoryRow["extension"];
 			$categoryTitle = $categoryRow["title"];
 			
-			$markup .= "<div class='modal fade modal-category-$categoryId' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' aria-hidden='true'>
+			$markup .= "<div class='modal fade modal-category-$categoryId' data-category-id = '$categoryId' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' aria-hidden='true'>
 				<div class='modal-dialog modal-lg'>
 					<div class='modal-content'>
 						<div class='modal-header'>
@@ -54,22 +53,24 @@ class Products{
 						</div>
 						<div class='container col-md-12 category-modal'>";
 								
-								if(!$productResult = $this->db->query("SELECT id,extension,title,description FROM Product WHERE categoryId = $categoryId")) throw new Exception($this->db->error);
+								if(!$productResult = $this->db->query("SELECT id,title,description FROM Product WHERE categoryId = $categoryId")) throw new Exception($this->db->error);
 								
 								while($productRow = $productResult->fetch_assoc()){
 									$productId = $productRow["id"];
-									$productExt = $productRow["extension"];
 									$productTitle = $productRow["title"];
 									$productDescription = $productRow["description"];
+									
+									$path = glob("img/products/" . $productId . ".*")[0];
 												
 									$markup .= "<div class='row product-row' data-product-id = '$productId'>
 										<div class='col-md-4'>
-											<img src='img/products/$productId.$productExt' class='product-image img-thumbnail img-responsive center-block'/>
+											<img src='$path' class='product-image img-thumbnail img-responsive center-block'/>
 										</div>
 										<div class='col-md-7 center-block'>
 											<p>
 												<h4 class = 'editable productTitle'>$productTitle</h4>
 												<div class = 'editable productDescription'>$productDescription</div>
+												<button type='button' class='btn btn-default adminTool deleteProduct'>Delete</button>
 											</p>
 										</div>
 									</div>";								
@@ -77,7 +78,7 @@ class Products{
 								
 			$markup .= "</div>
 						<div class='modal-footer'>
-							<button type='button' class='btn btn-default adminTool addNewProduct'>Add New Product</button>
+							<button type='button' class='btn btn-default adminTool addNewProduct'>Add</button>
 							<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
 						</div>
 					</div>
@@ -89,28 +90,29 @@ class Products{
 		return $markup;
 	}
 	
-	function addProduct(){
+	function addProduct($categoryId){
 		if($this->users->isLogged()){
-			$extension = "jpg";
 			$title = "My New Product";
 			$description = "My product description";
-			$categoryId = 1;
-			$insert = $this->db->prepare("INSERT INTO Product (extension,title,description,categoryId) VALUES (?,?,?,?)");
+			$insert = $this->db->prepare("INSERT INTO Product (title,description,categoryId) VALUES (?,?,?)");
 	
 			if(!$insert) throw new Exception($this->db->error);	
-			if(!$insert->bind_param("sssi",$extension,$title,$description,$categoryId)) throw new Exception($this->db->error);
+			if(!$insert->bind_param("ssi",$title,$description,$categoryId)) throw new Exception($this->db->error);
 			if(!$insert->execute()) throw new Exception($this->db->error);
 			
 			$productId = $this->db->insert_id;
+			$path = "img/products/" . $productId . ".jpg";
+			copy("img/plus.jpg",$path);
 			
 			return "<div class='row product-row' data-product-id = '$productId'>
 				<div class='col-md-4'>
-					<img src='img/new.jpg' class='product-image img-thumbnail img-responsive center-block'/>
+					<img src='$path' class='product-image img-thumbnail img-responsive center-block'/>
 				</div>
 				<div class='col-md-7 center-block'>
 					<p>
 						<h4 class = 'editable productTitle' contenteditable = 'true'>$title</h4>
 						<div class = 'editable productDescription' contenteditable = 'true'>$description</div>
+						<button type='button' class='btn btn-default adminTool deleteProduct' style = 'display:inline;'>Delete</button>
 					</p>
 				</div>
 			</div>";				
@@ -120,7 +122,25 @@ class Products{
 	}
 	
 	function changeImage(){
-		
+		if($this->users->isLogged()){
+			$fileName = $_FILES["productImage"]["name"];
+			$tempPath = $_FILES["productImage"]["tmp_name"];
+			$extension = pathinfo($fileName, PATHINFO_EXTENSION);
+			$id = $_POST["id"];
+			$newName = $id . "." . $extension;
+			
+			if(is_uploaded_file($tempPath)){ 
+				// delete old image
+				unlink(glob("img/products/" . $id . ".*")[0]);										
+				$newPath = "img/products/" . $newName;
+				move_uploaded_file($tempPath, $newPath);
+				return $newName;
+			}else{
+				throw new Exception("Failed to upload");
+			}
+		}else{
+			return false;
+		}
 	}
 	
 	function save($products){
@@ -144,17 +164,28 @@ class Products{
 	function getCategories(){
 		$markup = "";
 				
-		if(!$result = $this->db->query("SELECT id,extension,title FROM Categories")) throw new Exception($this->db->error);
+		if(!$result = $this->db->query("SELECT id,title FROM Category")) throw new Exception($this->db->error);
 		while($row = $result->fetch_assoc()){
 			$id = $row["id"];
-			$ext = $row["extension"];
 			$title = $row["title"];
+			$path = glob("img/categories/" . $id . ".*")[0];
 			
 			$markup .= "<div class='col-md-3 categoryImage'>
-					<div class = 'adminTool delete' data-category-id = '$id'>Delete</div><a href='' data-toggle='modal' data-target='.modal-category-$id'><img src='img/categories/$id.$ext' class='img-responsive img-thumbnail center-block category-photo'/></a>
+					<a href='' data-toggle='modal' data-target='.modal-category-$id'><img src='$path' class='img-responsive img-thumbnail center-block category-photo'/></a>
 				</div>";
 		}
 		return $markup;
+	}
+	
+	function delete($id){
+		if($this->users->isLogged()){
+			$id = (int)$id;
+			if(!$this->db->query("DELETE FROM Product WHERE id = " . (int)$id)) throw new Exception($this->db->error);
+			unlink(glob("img/products/" . $id . ".*")[0]);
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 }

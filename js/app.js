@@ -50,6 +50,7 @@ var App = (function(){
 		$("#toolbar").show();
 		$(".editable").attr("contenteditable","true");
 		$(".adminTool").show();
+		$(".product-image").css("cursor","pointer");
 	}
 	
 	//
@@ -220,7 +221,7 @@ var App = (function(){
 					,description:description
 				})
 			});
-			console.log(products);
+			
 			$.postCall("Products.save",products,function(data){
 				console.log(data);
 			},function(data){
@@ -228,13 +229,61 @@ var App = (function(){
 			})
 		})
 		
-		$("#categoriesSection").on("click .delete",function(){
-			
+		var uploadId = -1;
+		var productImage = $("");
+		$(".modal").on("click",".product-image",function(){
+			if(App.isLogged){
+				uploadId = $(this).closest(".product-row").data("productId");
+				productImage = $(this);
+				$("#fileUpload").click();
+			}
+		});
+		
+		$("#fileUploadContainer").on("change","#fileUpload",function(){
+			$.msgBox.success("Uploading Image...",true);
+			$("#fileUpload").upload("php/products.class.php",{ id: uploadId, "class" : "Products", method : "changeImage" },function(data){
+				if(data){
+					try{
+						data = JSON.parse(data);
+						if(data.error || !data.message){
+							console.error(data);
+							$.msgBox.error("An error occurred while trying to upload image");
+						}else{
+							$.msgBox.success("Image uploaded");
+							var src = data.message;
+							
+							// Add date on end of src so browser reloads the image instead of checking the cache
+							productImage.attr("src","img/products/" + src + "?date=" + new Date().getTime());
+							console.log(data);
+						}
+					}catch(e){
+						console.error(data);
+						$.msgBox.error("An error occurred while trying to upload image");
+					}
+				}else{
+					console.error(data);
+					$.msgBox.error("An error occurred while trying to upload image");
+				}
+			});
+		});
+		
+		$(".modal").on("click",".deleteProduct",function(){
+			var row = $(this).closest(".product-row");
+			var id = row.data("productId");
+			$.postCall("Products.delete",id,function(data){
+				$.msgBox.success("Product deleted");
+				row.remove();
+				console.log(data);
+			},function(data){
+				console.error(data);
+				$.msgBox.error("An error occurred while trying to delete product");
+			})
 		});
 	
 		$(".addNewProduct").click(function(){
 			var modal = $(this).closest(".modal");
-			$.postCall("Products.addProduct",function(markup){
+			var categoryId = modal.data("categoryId");
+			$.postCall("Products.addProduct",categoryId,function(markup){
 				if(markup){
 					modal.find(".category-modal").append(markup);
 				}else{
@@ -246,6 +295,10 @@ var App = (function(){
 				console.log(data);
 			});
 		});
+		
+		$("#logout").click(function(){
+			window.location = window.location.origin + window.location.pathname + "?logout";
+		})
 	}
 	
 	//

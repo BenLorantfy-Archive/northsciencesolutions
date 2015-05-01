@@ -1,5 +1,11 @@
 <?php
 	session_start();
+	
+	if(isset($_GET["logout"])){
+		session_unset();
+		header("Location: " . strtok($_SERVER["REQUEST_URI"],'?'));
+	}
+	
 	require_once("php/users.class.php");
 	require_once("php/content.class.php");
 	require_once("php/products.class.php");
@@ -7,7 +13,7 @@
 	$content = new Content();
 	$products = new Products();
 	
-	$text = $content->getAll();
+	$text = $content->getAll();		
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,12 +23,16 @@
 <body data-spy="scroll" data-target="#nss-navbar">
 	<header>
 		<?php include("includes/nav.php"); ?>
+		<div id = "fileUploadContainer">
+			<input id = "fileUpload" type="file" name = "productImage" style="display:none;"></div>
+		</div>
 		<div id = "toolbar" style="display:none; left:0; top:0;">
 			<div id = "adminToolbarHeader">Admin Tools</div>
 			<div id = "bold" class = "toolbarOption"><i class="fa fa-bold"></i></div>
 			<div id = "underline" class = "toolbarOption"><i class="fa fa-underline"></i></div>
 			<div id = "italic"class = "toolbarOption"><i class="fa fa-italic"></i></div>
 			<div id = "save" class = "toolbarOption"><i class="fa fa-save"></i></div>
+			<div id = "logout" class = "toolbarOption"><i class="fa fa-sign-out"></i></div>
 		</div>
 		<div class="jumbotron">
 			<div class="container jumbotron-text">

@@ -34,16 +34,15 @@
 if(isset($_POST["class"]) && isset($_POST["method"])){
 	$class  	= $_POST["class"];	// class method belongs to
 	$method 	= $_POST["method"];	// method to call
+	$json 		= !isset($_POST["json"]) || $_POST["json"] == "yes";
 	$arguments 	= array();
 	
 	if(method_exists($class,$method)){
-		if(isset($_POST["session"])){
-			session_start();			
-		}
+		session_start();			
 
-		array_walk($_POST, function(&$value, &$key) use (&$arguments){
+		array_walk($_POST, function(&$value, &$key) use (&$arguments,&$json){
 			if(is_numeric($key)){
-				if(isset($_POST["json"])){
+				if($json){
 					array_push($arguments,json_decode($value));
 				}else{
 					array_push($arguments,$value);
@@ -52,14 +51,14 @@ if(isset($_POST["class"]) && isset($_POST["method"])){
 		});	
 		
 		try{
-			if(isset($_POST["json"])){
+			if($json){
 				$returnData = array("error" => false, "message" => call_user_func_array(array(new $class(),$method), $arguments));
 			}else{
 				$returnData = call_user_func_array(array(new $class(),$method), $arguments);
 			}
 			
 		}catch(Exception $e){
-			if(isset($_POST["json"])){
+			if($json){
 				$returnData = array("error" => true,"message" => $e->getMessage());	
 			}else{
 				$returnData = $e->getMessage();
@@ -67,15 +66,14 @@ if(isset($_POST["class"]) && isset($_POST["method"])){
 		}	
 
 	}else{
-		if(isset($_POST["json"])){
+		if($json){
 			$returnData = array("error" => true, "message" => "Specified method doesn't exist within specified class");
 		}else{
 			$returnData = "Specified method doesn't exist within specified class";
 		}
 	}	
 	
-	if(isset($_POST["json"])){
-		header("Content-Type: application/json");
+	if($json){
 		echo json_encode($returnData, JSON_HEX_QUOT | JSON_HEX_TAG);
 	}else{
 		echo print_r($returnData,true);
