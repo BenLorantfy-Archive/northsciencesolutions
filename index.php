@@ -6,7 +6,7 @@
 	$users = new Users();
 	$content = new Content();
 	$products = new Products();
-	
+
 	$text = $content->getAll();
 ?>
 <!DOCTYPE html>
@@ -143,14 +143,7 @@
 					<h1 class="text-center">News</h1>
 				</div>
 			</div>
-			<div class = "row">
-				<div id = "newsContent" class="col-md-10 col-md-offset-1 content editable">
-					<?= $text["newsContent"]; ?>
-				</div>
-			</div>
 			<!-- News item 1 begin -->
-
-<!--
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 news-section-image">
 					<img src="img/news-image2.png" class="img-responsive img-rounded news-item-photo"/>
@@ -164,10 +157,8 @@
 					</p>
 				</div>
 			</div>
--->
 			<!-- News item 1 end -->
 			<!-- News item 2 begin -->
-<!--
 			<div class="row news-section-image">
 				<div class="col-md-4 col-md-offset-4">
 					<img src="img/news-image2.png" class="img-responsive img-rounded news-item-photo"/>
@@ -175,8 +166,9 @@
 			</div>
 			<div class="row news-item-text news-item">
 				<div class="col-md-6 col-md-offset-1 col-xs-8">
-					<p>
+
 					<h2>News item heading</h2>
+					<p>
 					News item #2: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
 					</p>
 				</div>
@@ -184,7 +176,6 @@
 					<img src="img/news-image2.png" class="img-responsive img-circle "/>
 				</div>
 			</div>
--->
 			<!-- News item 2 end -->
 		</div>
 	</div>
@@ -196,13 +187,7 @@
 					<h1 class="text-center">Promotions</h1>
 				</div>
 			</div>
-			<div class = "row">
-				<div id = "promotionsContent" class="col-md-10 col-md-offset-1 content editable">
-					<?= $text["promotionsContent"]; ?>
-				</div>
-			</div>
 			<!-- News item 1 begin -->
-<!--
 			<div class="row promotion-item">
 				<div class="col-md-12 promotion-item-image col-xs-12">
 					<img src="img/promotion-image.png" class="img-responsive img-rounded promotion-item-photo center-block"/>
@@ -216,19 +201,17 @@
 					</p>
 				</div>
 			</div>
-			-->
 			<!-- News item 1 end -->
 			<!-- News item 2 begin -->
-			<!--
-<div class="row promotion-item-image promotion-item">
-				<div class="col-md-6 col-md-offset-3">
+			<div class="row promotion-item-image promotion-item">
+				<div class="col-md-12">
 					<img src="img/promotion-image.png" class="img-responsive img-rounded promotion-item-photo center-block"/>
 				</div>
 			</div>
 			<div class="row promotion-item-text promotion-item">
 				<div class="col-md-6 col-md-offset-1 col-xs-8">
-					<p>
 					<h2>Promotion item heading</h2>
+					<p>
 					Promotion item #2: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru
 					</p>
 				</div>
@@ -236,7 +219,6 @@
 					<img src="img/news-image2.png" class="img-responsive img-circle"/>
 				</div>
 			</div>
--->
 			<!-- News item 2 end -->
 		</div>
 	</div>
@@ -257,7 +239,7 @@
 			<div class="row customer-service-item">
 				<div class="col-md-12">
 					<h3>Terms</h3>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
 				</div>
 			</div>
 			<div class="row additional-concerns customer-service-item">
@@ -317,8 +299,11 @@
 				</div>
 			</div>
 			<div class="row sectionContent">
-				<div class="col-md-12 map-image">
+				<div class="col-md-12 center-block" id="gmap">
+					<!--
 					<img src="img/map.png">
+					-->
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2897.209396726386!2d-80.5536135!3d43.435342500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882bf67cc2979d59%3A0x6ea10d7a1f1ab101!2s912+Garden+Path+Pl%2C+Kitchener%2C+ON+N2N+3S3!5e0!3m2!1sen!2sca!4v1430497012795" class="" width="800" height="600" frameborder="0" style="border:0"></iframe>
 				</div>
 			</div>
 			<div class="row">

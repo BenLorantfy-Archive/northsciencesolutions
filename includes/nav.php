@@ -17,8 +17,8 @@
 		<div class="navbar-collapse collapse navHeaderCollapse" id="nss-navbar">
 			<ul class="nav navbar-nav">
 				<li><a href="#home">Home</a></li>
-				<li><a href="#teamSection">Presidents Message</a></li>
 				<li><a href="#aboutSection">About</a></li>
+				<li><a href="#teamSection">Presidents Message</a></li>
 				<li><a href="#categoriesSection">Categories</a></li>
 				<li><a href="#newsSection">News</a></li>
 				<li><a href="#promotionsSection">Promotions</a></li>
