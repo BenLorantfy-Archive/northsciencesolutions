@@ -164,6 +164,16 @@ background-repeat: repeat;
 	height: 100%;
 }
 
+iframe.img-responsive{
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+#gmap iframe, #gmap object, #gmap embed{
+	width: 100%;
+}
+
 input.form-control{
     display:inline-block;
     width: 49%;
