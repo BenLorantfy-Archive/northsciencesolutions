@@ -61,7 +61,23 @@
 					<h4 class="modal-title" id="myModalLabel">Admin Login</h4>
 				</div>
 				<div class="modal-body">
-					...
+						<div id="contactInput">
+							<div class="row">
+								<div class="col-md-offset-2 col-md-10 comment-input">
+									<label for="username">Username</label>
+									<br/>
+									<input type="text" name="username" id="username" class="form-control" placeholder="Username"/>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-offset-2 col-md-10 comment-input">
+									<label for="password">Password</label>
+									<br/>
+									<input type="password" name="password" id="password" class="form-control" placeholder="Password"/>
+								</div>
+							</div>
+						</div>
+
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

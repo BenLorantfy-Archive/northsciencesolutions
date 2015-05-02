@@ -32,18 +32,28 @@ var App = (function(){
 	//
 	function openAdmin(){
 		$('#adminModal').modal("show");
-		$("#loginButton").click(function(){
-			$.postCall("Users.login","ben","password",function(loggedIn){
+		$("#loginButton").click(login);
+		$("#username,#password").keyup(function(e){
+			if(e.keyCode == 13){
+				login();
+			}
+		})
+		
+		function login(){
+			var username = $("#username").val();
+			var password = $("#password").val();
+			$.postCall("Users.login",username,password,function(loggedIn){
 				if(loggedIn){
 					App.isLogged = true;
 					startAdminMode();
+					$('#adminModal').modal("hide");
 				}else{
 					$.msgBox.error("Invalid credentials");
 				}
 			},function(data){
 				$.msgBox.error("An error occurred while trying to login");
-			});
-		});
+			});			
+		}
 	}
 	
 	function startAdminMode(){
